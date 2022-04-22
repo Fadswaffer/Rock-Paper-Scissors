@@ -1,0 +1,23 @@
+/* id's use # */
+/* elements use p */
+/* class uses .'' */
+
+html {
+  background-color: aquamarine;
+}
+
+.flex {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25px;
+}
+button {
+  background-color: blue;
+  color: red;
+  height: fit-content;
+  width: auto;
+  margin-bottom: 20px;
+}
