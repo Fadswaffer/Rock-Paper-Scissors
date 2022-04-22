@@ -4,13 +4,17 @@ const resetButton = document.querySelector("#reset");
 const roundResult = document.querySelector("#roundResult");
 const computerScore = document.querySelector("#computerScore");
 const playerScore = document.querySelector("#playerScore");
-// function game() {
-//   for (let i = 1; i <= 5; i++) {
-//     playRound(i);
-//   }
-//   logWins();
-//
-function playRound(round) {}
+
+function resetGame() {
+  //Start the game over
+}
+function playRound(round) {
+  // Clicking the buttons will call checkWinner
+}
+
+function countWins() {
+  // Game ends at 5 wins for either computer or player.
+}
 
 function computerChoice() {
   // move update to DOM
@@ -36,5 +40,3 @@ function logWins() {
   let computerWins = winners.filter((item) => item == "Computer").length;
   let ties = winners.filter((item) => item == "Tie").length;
 }
-
-game();
