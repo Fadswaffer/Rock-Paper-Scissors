@@ -1,42 +1,70 @@
-const choices = ["rock", "paper", "scissors"];
-const winners = [];
-const resetButton = document.querySelector("#reset");
-const roundResult = document.querySelector("#roundResult");
-const computerScore = document.querySelector("#computerScore");
-const playerScore = document.querySelector("#playerScore");
+const optionBtn = document.querySelectorAll("div.optionButtons button");
+const roundResults = document.querySelector("#roundResults");
+const playerPoints = document.querySelector("#playerScore");
+const computerPoints = document.querySelector("#computerScore");
+const ties = document.querySelector("#ties");
+const resetBtn = document.querySelector("#reset");
+const computerChoices = ["Rock", "Paper", "Scissors"];
+// const computerChoices = [0, 1, 2];
 
-function resetGame() {
-  //Start the game over
-}
-function playRound(round) {
-  // Clicking the buttons will call checkWinner
-}
+let playerChoice;
+let playerScore = 0;
+let computerScore = 0;
+let tieScore = 0;
 
-function countWins() {
-  // Game ends at 5 wins for either computer or player.
-}
+resetBtn.addEventListener("click", () => location.reload());
+optionBtn.forEach((button) => {
+  button.addEventListener("click", PlayerSelection);
+});
 
-function computerChoice() {
-  // move update to DOM
-  return choices[Math.floor(Math.random() * choices.length)];
-}
+// function checkWinner() {
+//   if (playerScore === 5 || computerScore === 5) {
+//     if (playerScore === computerScore) {
+//       // update winner to tie
+//     } else {
+//       let win = `${computerScore > playerScore ? "computer" : "playerPoints"}`;
+//       winnerMessage(win);
+//     }
+//   }
+// }
 
-function checkWinner(choiceP, choiceC) {
-  if (choiceP === choiceC) {
-    return "Tie";
-  } else if (
-    (choiceP === "rock" && choiceC == "scissors") ||
-    (choiceP === "paper" && choiceC == "rock") ||
-    (choiceP === "scissors" && choiceC == "paper")
+function computerPlay() {
+  let computerPick =
+    computerChoices[Math.floor(Math.random() * computerChoices.length)];
+  return computerPick;
+}
+// function winnerMessage(winner) {
+//   document.querySelector("#scores").textContent = ``;
+// }
+
+function playRound(playerChoice, computerPick) {
+  // let playerChoice = playerSelection();
+  // let computerPick =
+  if (
+    (playerChoice == "Rock" && computerPick == "Scissors") ||
+    (playerChoice == "Paper" && computerPick == "Rock") ||
+    (playerChoice == "Scissors" && computerPick == "Paper")
   ) {
-    return "Player";
+    playerPoints.textContent = ++playerScore;
+  } else if (playerChoice == computerPick) {
+    ties.textContent = ++tieScore;
   } else {
-    return "Computer";
+    computerPoints.textContent = ++computerScore;
   }
+  checkWinner();
 }
-
-function logWins() {
-  let playerWins = winners.filter((item) => item == "Player").length;
-  let computerWins = winners.filter((item) => item == "Computer").length;
-  let ties = winners.filter((item) => item == "Tie").length;
+function PlayerSelection(e) {
+  let playerChoice = e.target.id;
+  playerChoice = e.target.textContent;
+  playRound(playerChoice, computerPlay());
+}
+function checkWinner() {
+  if (playerScore === 5 || computerScore === 5 || tieScore == 5) {
+    if (playerScore === computerScore) {
+      // update winner to tie
+    } else {
+      let win = `${computerScore > playerScore ? "computer" : "playerPoints"}`;
+      winnerMessage(win);
+    }
+  }
 }
