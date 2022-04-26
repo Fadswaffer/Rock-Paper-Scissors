@@ -11,21 +11,45 @@
   <body>
     <div class="flex">
       <h1>Time to Play the Greatest Game of All time</h1>
-      <h2>Choose which to play!</h2>
+      <h2>Choose Your Weapon!</h2>
       <h3>First to win 5 Rounds Wins!</h3>
+      <div class="score">
+        <h1 class="ties">Ties: 0</h1>
+      </div>
+      <div class="winner">
+        <h1 class="winner"></h1>
 
-      <div class="optionButtons">
-        <button id="0">Rock</button>
-        <button id="1">Paper</button>
-        <button id="2">Scissors</button>
       </div>
-      <div class="scores">
-        <div id="playerScore">player</div>
-        <div id="computerScore">computer</div>
-        <div id="ties">ties</div>
+      <div class="playerSection">
+        <h3 class="playerChoice"></h3>
+        <h3 class="playerScore">Score: 0</h3>
+      <div class="playerimages">
+        <img src="./images/rock.svg" alt="" class="playerimg" id="rock" />
+        <img src="./images/paper.svg" alt="" class="playerimg" id="paper" />
+        <img
+          src="./images/scissors.svg"
+          alt=""
+          class="playerimg"
+          id="scissors"
+        />
       </div>
-      <div id="roundResult"></div>
+      <div class="computerSection">
+        <h3 class="computerChoice"></h3>
+        <h3 class="computerScore">Score: 0</h3>
+      <div class="computerimages">
+        <img src="./images/rock.svg" alt="" class="rock" />
+        <img src="./images/paper.svg" alt="" class="paper" />
+        <img src="./images/scissors.svg" alt="" class="scissors" />
+      </div>
+      <!-- <div class="scores"> -->
+        <!-- <div class="playerScore">player: 0</div>
+        <div class="computerScore">computer: 0</div>
+        <div class="ties">ties</div> -->
+      </div>
+      
+      <!-- <img src="./images/loser.mp4" alt="" class="loser" /> -->
     </div>
+
     <button id="reset">Reset</button>
   </body>
   <script src="javascript.js"></script>

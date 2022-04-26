@@ -21,3 +21,19 @@ button {
   width: auto;
   margin-bottom: 20px;
 }
+
+.playerImgs,
+.computerImgs {
+  display: flex;
+  width: auto;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.048);
+  padding: 20px;
+  border: solid black 5px;
+  border-radius: 10px;
+  max-height: 90px;
+}
+img {
+  width: 90px;
+  height: 90px;
+}
